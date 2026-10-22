@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe: Harbour Physio homepage</title>
+<style>
+  /* Greyscale only. One font. Boxes, labels, and one marked call to action. */
+  :root { --bg:#e9e9e9; --box:#d4d4d4; --pic:#bdbdbd; --line:#8a8a8a; --ink:#222; --cta:#222; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:24px 16px 48px; background:var(--bg); color:var(--ink);
+         font:16px/1.45 Arial, Helvetica, sans-serif; }
+  h1.title { font-size:20px; margin:0 0 4px; }
+  p.note { margin:0 0 20px; font-size:14px; }
+  .stage { display:flex; gap:32px; align-items:flex-start; overflow-x:auto; padding-bottom:16px; }
+  .col > h2 { font-size:13px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 8px; }
+  .frame { background:#fff; border:2px solid var(--line); }
+  .frame.wide { width:960px; }
+  .frame.narrow { width:390px; }
+
+  /* every block is a section with a number tag and a one-line job */
+  .sec { position:relative; border-bottom:1px dashed var(--line); padding:28px 32px; }
+  .narrow .sec { padding:20px 16px; }
+  .tag { position:absolute; top:6px; right:8px; font-size:11px; color:#555; }
+  .job { display:block; font-size:12px; color:#555; margin-bottom:10px; }
+  h3 { margin:0 0 8px; font-size:26px; line-height:1.2; }
+  .narrow h3 { font-size:22px; }
+  p { margin:0 0 12px; }
+
+  .bar { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .logo { background:var(--box); padding:8px 14px; font-weight:bold; }
+  .links { display:flex; gap:20px; font-size:14px; }
+  .narrow .links { display:none; }          /* phone: links go behind a menu button */
+  .menu { display:none; border:1px solid var(--line); padding:8px 12px; font-size:14px; }
+  .narrow .menu { display:block; }
+
+  .pic { background:var(--pic); border:1px solid var(--line); display:flex; align-items:center;
+         justify-content:center; text-align:center; font-size:13px; color:#333; padding:8px; }
+  .hero { display:grid; grid-template-columns:1.1fr 1fr; gap:32px; align-items:center; }
+  .narrow .hero { grid-template-columns:1fr; gap:16px; }
+  .hero .pic { height:260px; } .narrow .hero .pic { height:180px; }
+
+  .cta { display:inline-block; background:var(--cta); color:#fff; padding:14px 22px; font-weight:bold; }
+  .narrow .cta { display:block; text-align:center; }   /* full-width tap target on a phone */
+  .cta::before { content:"CALL TO ACTION: "; font-weight:normal; font-size:11px; opacity:.8; }
+  .cta.second { background:#fff; color:var(--ink); border:2px solid var(--cta); }
+
+  .row3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .narrow .row3 { grid-template-columns:1fr; gap:12px; }
+  .card { background:var(--box); padding:16px; }
+  .card h4 { margin:8px 0 4px; font-size:17px; }
+  .card .pic { height:90px; }
+
+  .steps { display:flex; gap:20px; } .narrow .steps { flex-direction:column; gap:10px; }
+  .step { flex:1; border:1px solid var(--line); padding:12px; }
+
+  .quote { background:var(--box); padding:20px; font-size:18px; }
+  .team { display:grid; grid-template-columns:200px 1fr; gap:24px; align-items:center; }
+  .narrow .team { grid-template-columns:1fr; gap:12px; }
+  .team .pic { height:180px; }
+
+  .faq div { border-top:1px solid var(--line); padding:10px 0; font-weight:bold; }
+  .foot { background:var(--box); font-size:13px; }
+  .wide .cut { display:none; }            /* phone notes show only in the phone frame */
+  .cut { font-size:12px; color:#555; border:1px dotted var(--line); padding:6px; margin-top:10px; }
+</style>
+</head>
+<body>
+<h1 class="title">Harbour Physio: homepage wireframe (invented practice)</h1>
+<p class="note">Written 18 Oct 2026. Greyscale on purpose: this is about order and wording, not looks. Left is a desktop width, right is a 390px phone. The black button is the one action. Numbers match the section list we agreed. Words in [square brackets] are blanks for the owner to fill: we never make up a real business's prices, times or people. Grey boxes marked [photo: ...] are pictures to be chosen later.</p>
+
+<div class="stage">
+  <div class="col"><h2>Desktop (960px)</h2><div class="frame wide" id="d"></div></div>
+  <div class="col"><h2>Phone (390px)</h2><div class="frame narrow" id="p"></div></div>
+</div>
+
+<template id="page">
+  <div class="sec"><span class="tag">1 Header</span>
+    <span class="job">Job: say whose site this is and how to get to the main pages.</span>
+    <div class="bar"><div class="logo">[logo: Harbour Physio]</div>
+      <div class="links"><span>Treatments</span><span>Prices</span><span>Our team</span><span>Contact</span></div>
+      <div class="menu">Menu</div></div>
+    <div class="cut">Phone: four links collapse into one Menu button. Phone number stays one tap away.</div>
+  </div>
+
+  <div class="sec"><span class="tag">2 Hero</span>
+    <span class="job">Job: say what we do, for whom, and where, then offer the booking.</span>
+    <div class="hero"><div>
+      <h3>Back pain, sports injuries and stiff joints treated in Millbrook</h3>
+      <p>Chartered physiotherapists. First appointment within [days], [minutes], [fee].</p>
+      <a class="cta">Book your first appointment</a></div>
+      <div class="pic">[photo: physio with a patient, in the clinic]</div></div>
+    <div class="cut">Phone: words and button first, picture below and shorter (180px high). Button full width.</div>
+  </div>
+
+  <div class="sec"><span class="tag">3 Treatments</span>
+    <span class="job">Job: let the visitor find their own problem in one glance.</span>
+    <h3>What we treat</h3>
+    <div class="row3">
+      <div class="card"><div class="pic">[photo: back]</div><h4>Back and neck pain</h4><p>Desk work, lifting, sleeping badly.</p></div>
+      <div class="card"><div class="pic">[photo: runner]</div><h4>Sports injuries</h4><p>Knees, ankles, hamstrings.</p></div>
+      <div class="card"><div class="pic">[photo: older patient]</div><h4>Joints and mobility</h4><p>Hips, shoulders, after surgery.</p></div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="tag">4 First visit</span>
+    <span class="job">Job: remove the fear of the unknown.</span>
+    <h3>What happens at your first visit</h3>
+    <div class="steps">
+      <div class="step"><b>1.</b> We listen (about [minutes])</div>
+      <div class="step"><b>2.</b> We examine you (about [minutes])</div>
+      <div class="step"><b>3.</b> You leave with a plan and exercises (about [minutes])</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="tag">5 Proof</span>
+    <span class="job">Job: one believable patient, with a name and a result.</span>
+    <div class="quote">"[real quote from a named patient, two sentences, what changed for them]" and [name, town]</div>
+  </div>
+
+  <div class="sec"><span class="tag">6 Team</span>
+    <span class="job">Job: show who they will meet.</span>
+    <div class="team"><div class="pic">[photo: the lead physio]</div>
+      <div><h3>Meet [name of lead physio]</h3><p>[two lines: qualifications, years practising, what they like treating]</p></div></div>
+  </div>
+
+  <div class="sec faq"><span class="tag">7 Questions</span>
+    <span class="job">Job: answer the three things people ask before booking.</span>
+    <h3>Common questions</h3>
+    <div>Do I need a referral?</div><div>Do you accept insurance?</div><div>Where do I park?</div>
+    <div class="cut">Phone: each question opens on tap to show its answer.</div>
+  </div>
+
+  <div class="sec"><span class="tag">8 Final action</span>
+    <span class="job">Job: the same single action, repeated for those who scrolled.</span>
+    <h3>Ready when you are</h3>
+    <a class="cta">Book your first appointment</a>
+    <p style="margin-top:12px">Or call [phone number]</p>
+  </div>
+
+  <div class="sec foot"><span class="tag">9 Footer</span>
+    <span class="job">Job: the details people look for last, in the place they expect them.</span>
+    Address, opening hours, map link, privacy, registration number.
+  </div>
+</template>
+
+<script>
+  // Same content cloned into both frames. Only the frame class changes the layout.
+  var t = document.getElementById("page");
+  ["d","p"].forEach(function (id) {
+    document.getElementById(id).appendChild(t.content.cloneNode(true));
+  });
+</script>
+</body>
+</html>
